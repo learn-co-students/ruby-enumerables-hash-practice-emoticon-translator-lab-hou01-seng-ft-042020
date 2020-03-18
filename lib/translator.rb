@@ -1,7 +1,9 @@
 # require modules here
-
+require "yaml"
+  
+  
 def load_library(path)
-  require "yaml"
+
   emoticons = YAML.load_file(path)
   japenese_to_english = {}
   english_to_japenese = {}
