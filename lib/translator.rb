@@ -46,6 +46,25 @@ end
 # "surprised"=>{:english=>":o", :japanese=>"o_O"},
 # "wink"=>{:english=>";)", :japanese=>"(^_-)"}}
 
+
+def get_japanese_emoticon(data, emoticon)
+  
+  e_library = load_library(data)
+  
+  japanese_emot = e_library.keys.find do |key|
+    e_library[key][:english] == emoticon
+  end
+  
+  # if japanese_emot
+  #   e_library[japanese_emot][:japanese]
+  # else
+  #   "Sorry, that emoticon was not found" 
+  # end
+  
+  japanese_emot ? e_library[japanese_emot][:japanese] : "Sorry, that emoticon was not found"
+  
+end
+
 def get_english_meaning(data, emoticon)
   
   emot_library = load_library(data)
@@ -59,23 +78,6 @@ def get_english_meaning(data, emoticon)
   else
     "Sorry, that emoticon was not found" 
   end
-end
-
-
-def get_japanese_emoticon(data, emoticon)
-  
-  e_library = load_library(data)
-  
-  japanese_emot = e_library.keys.find do |key|
-    e_library[key][:english] == emoticon
-  end
-  
-  if japanese_emot
-    e_library[japanese_emot][:japanese]
-  else
-    "Sorry, that emoticon was not found" 
-  end
-  
 end
 
 
